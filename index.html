@@ -80,17 +80,6 @@
         #lightbox-prev { left: 16px; } #lightbox-next { right: 16px; }
         #lightbox-prev:hover, #lightbox-next:hover { background: rgba(255,255,255,0.3); }
 
-        /* NEW: Before & After Slider */
-        .ba-container { position: relative; overflow: hidden; cursor: ew-resize; border-radius: 16px; }
-        .ba-before { width: 100%; display: block; }
-        .ba-after-wrap { position: absolute; top: 0; left: 0; height: 100%; overflow: hidden; width: 50%; }
-        .ba-after-wrap img { position: absolute; top: 0; left: 0; height: 100%; max-width: none; display: block; }
-        .ba-divider { position: absolute; top: 0; bottom: 0; width: 3px; background: white; left: 50%; transform: translateX(-50%); pointer-events: none; }
-        .ba-handle-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .ba-range { position: absolute; inset: 0; opacity: 0; cursor: ew-resize; width: 100%; height: 100%; margin: 0; }
-        .ba-label { position: absolute; top: 12px; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
-        .ba-label.before { left: 12px; background: rgba(0,0,0,0.6); color: white; }
-        .ba-label.after { right: 12px; background: #10b981; color: white; }
 
         /* NEW: FAQ Accordion */
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
@@ -437,70 +426,98 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
         </div>
     </section>
 
-    <!-- NEW: Before & After Smile Gallery -->
-    <section id="before-after" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <div class="inline-flex items-center gap-2 bg-mint-light rounded-full px-4 py-2 mb-4">
-                    <i data-lucide="sliders-horizontal" class="w-4 h-4 text-mint"></i>
-                    <span class="text-sm font-semibold text-mint">Transformations</span>
-                </div>
-                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Before &amp; After</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Drag the slider to see the smile transformations our patients experience.</p>
+  <section id="before-after" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-16 fade-in">
+            <div class="inline-flex items-center gap-2 bg-mint-light rounded-full px-4 py-2 mb-4">
+                <i data-lucide="image" class="w-4 h-4 text-mint"></i>
+                <span class="text-sm font-semibold text-mint">Smile Transformations</span>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 fade-in">
-                <div>
-                    <div class="ba-container shadow-xl mb-3" id="ba1" style="height:280px;">
-                        <img src="Images/Before Whitening.jpeg" alt="Before" class="ba-before w-full object-cover" style="height:280px;">
-                        <div class="ba-after-wrap" id="ba1-after">
-                            <img src="Images/After Whitening.jpeg" alt="After" style="height:280px;object-fit:cover;">
-                        </div>
-                        <div class="ba-divider" id="ba1-div"></div>
-                        <div class="ba-handle-btn" id="ba1-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2.5"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>
-                        </div>
-                        <span class="ba-label before">Before</span>
-                        <span class="ba-label after">After</span>
-                        <input type="range" class="ba-range" min="0" max="100" value="50" oninput="updateSlider('ba1',this.value)">
-                    </div>
-                    <p class="text-center text-sm font-semibold text-gray-700">Teeth Whitening</p>
-                </div>
-                <div>
-                    <div class="ba-container shadow-xl mb-3" id="ba2" style="height:280px;">
-                        <img src="Images/Before Cleaning.jpeg" alt="Before" class="ba-before w-full object-cover" style="height:280px;">
-                        <div class="ba-after-wrap" id="ba2-after">
-                            <img src="Images/After Cleaning.jpeg" alt="After" style="height:280px;object-fit:cover;">
-                        </div>
-                        <div class="ba-divider" id="ba2-div"></div>
-                        <div class="ba-handle-btn" id="ba2-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2.5"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>
-                        </div>
-                        <span class="ba-label before">Before</span>
-                        <span class="ba-label after">After</span>
-                        <input type="range" class="ba-range" min="0" max="100" value="50" oninput="updateSlider('ba2',this.value)">
-                    </div>
-                    <p class="text-center text-sm font-semibold text-gray-700">Veneers</p>
-                </div>
-                <div>
-                    <div class="ba-container shadow-xl mb-3" id="ba3" style="height:280px;">
-                        <img src="Images/AfterCrowns.jpeg" alt="Before" class="ba-before w-full object-cover" style="height:280px;">
-                        <div class="ba-after-wrap" id="ba3-after">
-                            <img src="Images/BeforeCrowns.jpeg" alt="After" style="height:280px;object-fit:cover;">
-                        </div>
-                        <div class="ba-divider" id="ba3-div"></div>
-                        <div class="ba-handle-btn" id="ba3-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2.5"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>
-                        </div>
-                        <span class="ba-label before">Before</span>
-                        <span class="ba-label after">After</span>
-                        <input type="range" class="ba-range" min="0" max="100" value="50" oninput="updateSlider('ba3',this.value)">
-                    </div>
-                    <p class="text-center text-sm font-semibold text-gray-700">Smile Makeover</p>
-                </div>
-            </div>
+
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Before & After
+            </h2>
+
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Discover the beautiful results achieved for our patients.
+            </p>
         </div>
-    </section>
-    <!-- END NEW: Before & After Smile Gallery -->
+
+        <div class="grid md:grid-cols-3 gap-8 fade-in">
+
+            <!-- Whitening -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <img id="case1"
+                     src="Images/After Whitening.jpeg"
+                     data-before="Images/Before Whitening.jpeg"
+                     data-after="Images/After Whitening.jpeg"
+                     data-state="after"
+                     class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
+
+                <div class="p-5 text-center">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-4">
+                        Teeth Whitening
+                    </h3>
+
+                    <button
+                        class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition"
+                        onclick="toggleComparison(this,'case1')">
+
+                        👁 View Before
+                    </button>
+                </div>
+            </div>
+
+            <!-- Veneers -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <img id="case2"
+                     src="Images/After Cleaning.jpeg"
+                     data-before="Images/Before Cleaning.jpeg"
+                     data-after="Images/After Cleaning.jpeg"
+                     data-state="after"
+                     class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
+
+                <div class="p-5 text-center">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-4">
+                        Veneers
+                    </h3>
+
+                    <button
+                        class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition"
+                        onclick="toggleComparison(this,'case2')">
+
+                        👁 View Before
+                    </button>
+                </div>
+            </div>
+
+            <!-- Smile Makeover -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <img id="case3"
+                     src="Images/AfterCrowns.jpeg"
+                     data-before="Images/BeforeCrowns.jpeg"
+                     data-after="Images/AfterCrowns.jpeg"
+                     data-state="after"
+                     class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
+
+                <div class="p-5 text-center">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-4">
+                        Smile Makeover
+                    </h3>
+
+                    <button
+                        class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition"
+                        onclick="toggleComparison(this,'case3')">
+
+                        👁 View Before
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- Gallery -->
     <section id="gallery" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
@@ -971,23 +988,32 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
             if (e.key === 'ArrowLeft')   lightboxNav(-1);
             if (e.key === 'ArrowRight')  lightboxNav(1);
         });
+     function toggleComparison(button, imageId) {
 
-        // NEW: Before & After Slider
-        function updateSlider(id, value) {
-            const pct       = value + '%';
-            const container = document.getElementById(id);
-            document.getElementById(id + '-after').style.width = pct;
-            document.getElementById(id + '-div').style.left    = pct;
-            document.getElementById(id + '-btn').style.left    = pct;
-            document.getElementById(id + '-after').querySelector('img').style.width = container.offsetWidth + 'px';
+    const img = document.getElementById(imageId);
+
+    img.style.opacity = 0;
+
+    setTimeout(() => {
+
+        if (img.dataset.state === "after") {
+
+            img.src = img.dataset.before;
+            img.dataset.state = "before";
+            button.innerHTML = "👁 View After";
+
+        } else {
+
+            img.src = img.dataset.after;
+            img.dataset.state = "after";
+            button.innerHTML = "👁 View Before";
+
         }
-        ['ba1','ba2','ba3'].forEach(id => updateSlider(id, 50));
-        window.addEventListener('resize', () => {
-            ['ba1','ba2','ba3'].forEach(id => {
-                const range = document.getElementById(id).querySelector('.ba-range');
-                updateSlider(id, range.value);
-            });
-        });
+
+        img.style.opacity = 1;
+
+    }, 200);
+}
     </script>
 </body>
 </html>

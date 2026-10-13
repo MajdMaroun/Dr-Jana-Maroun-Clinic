@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,97 +6,14 @@
     <meta name="google-site-verification" content="K0TJwtjjPpa2Zm37aM7Cw9GxIQIuvf8D4Hp3_0A7uZs" />
     <meta name="description" content="Dr. Jana Maroun is a trusted dentist in Batroun, Lebanon, providing cosmetic, preventive, and restorative dental care.">
     <title>Dr. Jana Maroun - Batroun Dental Clinic</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/tailwind-config.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-          darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
-                        dental: { light:'#e0f2fe', DEFAULT:'#0ea5e9', dark:'#0369a1' },
-                        mint: { light:'#ecfdf5', DEFAULT:'#10b981', dark:'#047857' }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Playfair Display', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        .hero-gradient { background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 30%, #ecfdf5 70%, #f0fdfa 100%); }
-        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
-        .float-animation { animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0%,100%{ transform: translateY(0px); } 50%{ transform: translateY(-20px); } }
-        .pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
-        @keyframes pulseGlow { 0%,100%{ box-shadow: 0 0 20px rgba(16,185,129,0.4); } 50%{ box-shadow: 0 0 40px rgba(16,185,129,0.8); } }
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 50; }
-        .whatsapp-float a { display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: #25D366; border-radius: 50%; box-shadow: 0 6px 20px rgba(37,211,102,0.5); transition: all 0.3s ease; }
-        .whatsapp-float a:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.7); }
-        .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
-        .made-by {
-           position: fixed; bottom: 15px; left: 15px;
-           display: flex; align-items: center; gap: 6px;
-           background: rgba(15, 23, 42, 0.85);
-           backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-           color: rgba(255,255,255,0.85);
-           padding: 8px 14px; border-radius: 20px;
-           font-size: 12px; font-family: Inter, sans-serif;
-           border: 1px solid rgba(255,255,255,0.1);
-           box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-           z-index: 999; opacity: 0.85; transition: all 0.3s ease;
-          }
-        .made-by:hover { opacity: 1; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(16,185,129,0.3); border-color: rgba(16,185,129,0.3); }
-        .made-by i { color: #10b981; font-size: 13px; }
-        .made-by a { color: #10b981; text-decoration: none; font-weight: 600; }
-        .made-by a:hover { text-decoration: underline; }
-
-        /* NEW: Scroll Progress Bar */
-        #scroll-progress {
-            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-            background: linear-gradient(to right, #0ea5e9, #10b981);
-            z-index: 9999; transition: width 0.1s ease;
-        }
-
-        /* NEW: Image Lightbox */
-        #lightbox {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.92); z-index: 1000;
-            align-items: center; justify-content: center;
-        }
-        #lightbox.active { display: flex; }
-        #lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 12px; object-fit: contain; }
-        #lightbox-close { position: absolute; top: 20px; right: 24px; color: white; font-size: 36px; cursor: pointer; line-height: 1; z-index: 10; }
-        #lightbox-prev, #lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; color: white; font-size: 28px; padding: 12px 18px; cursor: pointer; border-radius: 8px; transition: background 0.2s; }
-        #lightbox-prev { left: 16px; } #lightbox-next { right: 16px; }
-        #lightbox-prev:hover, #lightbox-next:hover { background: rgba(255,255,255,0.3); }
-
-
-        /* NEW: FAQ Accordion */
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .faq-answer.open { max-height: 300px; }
-        .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-        /* NEW: Back to Top Button */
-        #back-to-top { position: fixed; bottom: 100px; right: 24px; z-index: 40; opacity: 0; pointer-events: none; transition: all 0.3s ease; }
-        #back-to-top.visible { opacity: 1; pointer-events: auto; }
-
-        /* NEW: Open/Closed Status Badge */
-        .status-open { background: #dcfce7; color: #16a34a; }
-        .status-closed { background: #fee2e2; color: #dc2626; }
-    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Visitor Analytics -->
+    <!-- Visitor Analytics (replace G-XXXXXXXXXX with your real ID) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -107,10 +23,8 @@
     </script>
 </head>
 
-
 <body class="font-sans text-gray-800 antialiased">
 
-    <!-- NEW: Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
     <!-- Navigation -->
@@ -132,18 +46,17 @@
                        class="w-8 h-8 bg-gray-100 hover:bg-pink-500 hover:text-white text-gray-900 rounded-lg flex items-center justify-center transition-all border border-gray-300 hover:border-dental">
                         <i class="fa-brands fa-instagram text-xs"></i>
                     </a>
-                   <a href="https://wa.me/96179307104" target="_blank"
-                       rel="noopener noreferrer"
+                    <a href="https://wa.me/96179307104" target="_blank" rel="noopener noreferrer"
                        class="w-8 h-8 bg-gray-100 hover:bg-green-500 hover:text-white text-gray-900 rounded-lg flex items-center justify-center transition-all border border-gray-300 hover:border-green-500">
-                      <i class="fa-brands fa-whatsapp text-sm"></i>
-                   </a>
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                    </a>
                 </div>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#about" class="text-sm font-medium text-gray-600 hover:text-dental transition-colors">About</a>
                     <a href="#services" class="text-sm font-medium text-gray-600 hover:text-dental transition-colors">Services</a>
                     <a href="#gallery" class="text-sm font-medium text-gray-600 hover:text-dental transition-colors">Gallery</a>
                     <a href="#location" class="text-sm font-medium text-gray-600 hover:text-dental transition-colors">Location</a>
-                    <a href="https://wa.me/79307104" target="_blank"
+                    <a href="https://wa.me/96179307104" target="_blank"
                        class="inline-flex items-center gap-2 bg-mint hover:bg-mint-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-mint/30 hover:shadow-mint/50">
                         <i data-lucide="message-circle" class="w-4 h-4"></i>
                         Book Now
@@ -152,53 +65,15 @@
                 <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
-                <!-- NEW: Dark Mode Toggle -->
-<button id="darkToggle" onclick="toggleDark()"
-    class="w-9 h-9 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 flex items-center justify-center transition-all border border-gray-300"
-    title="Toggle dark mode">
-    <i data-lucide="sun" id="icon-sun" class="w-4 h-4 text-amber-500 hidden"></i>
-    <i data-lucide="moon" id="icon-moon" class="w-4 h-4 text-gray-600"></i>
-</button>
+                <button id="darkToggle" onclick="toggleDark()"
+                    class="w-9 h-9 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 flex items-center justify-center transition-all border border-gray-300"
+                    title="Toggle dark mode">
+                    <i data-lucide="sun" id="icon-sun" class="w-4 h-4 text-amber-500 hidden"></i>
+                    <i data-lucide="moon" id="icon-moon" class="w-4 h-4 text-gray-600"></i>
+                </button>
             </div>
         </div>
     </nav>
-
-<!--CSS for dark mode-->
-<style>/* NEW: Dark Mode */
-html.dark body { background: #0f172a; color: #e2e8f0; }
-html.dark nav { background: rgba(15,23,42,0.85) !important; border-color: #1e293b; }
-html.dark .hero-gradient { background: linear-gradient(135deg,#0c1a2e,#0f172a,#0c1f1a,#0f172a) !important; }
-html.dark .bg-white { background: #1e293b !important; }
-html.dark .bg-gray-50,
-html.dark .from-gray-50 { background: #0f172a !important; }
-html.dark .text-gray-900 { color: #f1f5f9 !important; }
-html.dark .text-gray-800 { color: #e2e8f0 !important; }
-html.dark .text-gray-700 { color: #cbd5e1 !important; }
-html.dark .text-gray-600 { color: #94a3b8 !important; }
-html.dark .text-gray-500 { color: #64748b !important; }
-html.dark .border-gray-100,
-html.dark .border-gray-200 { border-color: #334155 !important; }
-html.dark .shadow-md,
-html.dark .shadow-lg,
-html.dark .shadow-xl { box-shadow: 0 4px 24px rgba(0,0,0,0.6) !important; }
-html.dark footer { background: #020617 !important; }
-html.dark .bg-gray-100 { background: #334155 !important; }
-html.dark .bg-gray-800 { background: #0f172a !important; }
-html.dark .faq-item { background: #1e293b !important; }
-html.dark .made-by { background: rgba(255,255,255,0.1); }
-</style>
-
-<script>// NEW: Dark Mode Toggle
-function toggleDark() {
-    const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    document.getElementById('icon-sun').classList.toggle('hidden', !isDark);
-    document.getElementById('icon-moon').classList.toggle('hidden', isDark);
-    lucide.createIcons();
-}
-// Load saved preference
-if (localStorage.getItem('theme') === 'dark') toggleDark();
-</script>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="md:hidden hidden bg-white border-t fixed top-16 left-0 right-0 z-40 shadow-lg">
@@ -207,7 +82,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
             <a href="#services" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-dental-light hover:text-dental transition-colors">Services</a>
             <a href="#gallery" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-dental-light hover:text-dental transition-colors">Gallery</a>
             <a href="#location" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-dental-light hover:text-dental transition-colors">Location</a>
-            <a href="https://wa.me/79307104" target="_blank" class="block text-center bg-mint hover:bg-mint-dark text-white px-5 py-3 rounded-full text-sm font-semibold transition-all">
+            <a href="https://wa.me/96179307104" target="_blank" class="block text-center bg-mint hover:bg-mint-dark text-white px-5 py-3 rounded-full text-sm font-semibold transition-all">
                 Book via WhatsApp
             </a>
         </div>
@@ -232,7 +107,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                         Dr. Jana Maroun brings over 6 years of expertise in cosmetic and general dentistry. Experience personalized care in a warm, modern environment.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/79307104?text=Hello%20Dr.%20Jana%20I%20would%20like%20to%20book%20an%20appointment." target="_blank"
+                        <a href="https://wa.me/96179307104?text=Hello%20Dr.%20Jana%20I%20would%20like%20to%20book%20an%20appointment." target="_blank"
                            class="inline-flex items-center justify-center gap-2 bg-mint hover:bg-mint-dark text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg shadow-mint/30 hover:shadow-mint/50 hover:-translate-y-0.5">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                             Book Appointment
@@ -243,7 +118,6 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                         </a>
                     </div>
 
-                    <!-- NEW: Animated Counters (modified from static numbers) -->
                     <div class="flex items-center gap-8 mt-10 pt-8 border-t border-gray-200/60">
                         <div>
                             <p class="text-3xl font-bold text-gray-900"><span class="counter" data-target="6">0</span>+</p>
@@ -261,8 +135,6 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                             </p>
                         </div>
                     </div>
-                    <!-- END NEW: Animated Counters -->
-
                 </div>
                 <div class="order-1 md:order-2 fade-in">
                     <div class="relative">
@@ -296,7 +168,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
         </div>
     </section>
 
-    <!-- About / Doctor Info -->
+    <!-- About -->
     <section id="about" class="py-20 md:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -334,7 +206,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                             </div>
                             <div>
                                 <p class="font-semibold text-gray-900 text-sm">Specialty</p>
-                                <p class="text-xs text-gray-500">Cosmetic & Restorative</p>
+                                <p class="text-xs text-gray-500">Cosmetic &amp; Restorative</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
@@ -357,7 +229,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                         </div>
                     </div>
                     <div class="flex justify-center">
-                        <a href="https://wa.me/79307104?text=Hi%20Dr.%20Maroun%2C%20I%20would%20like%20to%20schedule%20a%20consultation." target="_blank"
+                        <a href="https://wa.me/96179307104?text=Hi%20Dr.%20Maroun%2C%20I%20would%20like%20to%20schedule%20a%20consultation." target="_blank"
                            class="inline-flex items-center gap-2 bg-gradient-to-r from-dental to-mint text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
                             <i data-lucide="calendar-check" class="w-5 h-5"></i>
                             Schedule a Consultation
@@ -381,44 +253,32 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-in">
-                    <div class="w-14 h-14 bg-dental/10 rounded-2xl flex items-center justify-center mb-5">
-                        <i data-lucide="scan" class="w-7 h-7 text-dental"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-dental/10 rounded-2xl flex items-center justify-center mb-5"><i data-lucide="scan" class="w-7 h-7 text-dental"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">General Dentistry</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Comprehensive exams, cleanings, fillings, and preventive care to keep your smile healthy.</p>
                 </div>
                 <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-in">
-                    <div class="w-14 h-14 bg-mint/10 rounded-2xl flex items-center justify-center mb-5">
-                        <i data-lucide="sparkles" class="w-7 h-7 text-mint"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-mint/10 rounded-2xl flex items-center justify-center mb-5"><i data-lucide="sparkles" class="w-7 h-7 text-mint"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Cosmetic Dentistry</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Veneers, teeth whitening, bonding, and smile makeovers to enhance your natural beauty.</p>
                 </div>
                 <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-in">
-                    <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-5">
-                        <i data-lucide="shield-plus" class="w-7 h-7 text-amber-500"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-5"><i data-lucide="shield-plus" class="w-7 h-7 text-amber-500"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Dental Implants</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Permanent tooth replacement solutions with natural-looking results and long-term durability.</p>
                 </div>
                 <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-in">
-                    <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-5">
-                        <i data-lucide="smile" class="w-7 h-7 text-purple-500"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-5"><i data-lucide="smile" class="w-7 h-7 text-purple-500"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Orthodontics</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Invisalign and traditional braces for perfectly aligned teeth and a confident smile.</p>
                 </div>
                 <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-in">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-5">
-                        <i data-lucide="heart-pulse" class="w-7 h-7 text-red-400"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-5"><i data-lucide="heart-pulse" class="w-7 h-7 text-red-400"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Root Canal Therapy</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Pain-free root canal treatments using advanced techniques and modern technology.</p>
                 </div>
                 <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-gray-100 fade-in">
-                    <div class="w-14 h-14 bg-sky-50 rounded-2xl flex items-center justify-center mb-5">
-                        <i data-lucide="baby" class="w-7 h-7 text-sky-500"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-sky-50 rounded-2xl flex items-center justify-center mb-5"><i data-lucide="baby" class="w-7 h-7 text-sky-500"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Pediatric Dentistry</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Gentle, friendly dental care for children in a comfortable and fun environment.</p>
                 </div>
@@ -426,98 +286,51 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
         </div>
     </section>
 
-  <section id="before-after" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="text-center mb-16 fade-in">
-            <div class="inline-flex items-center gap-2 bg-mint-light rounded-full px-4 py-2 mb-4">
-                <i data-lucide="image" class="w-4 h-4 text-mint"></i>
-                <span class="text-sm font-semibold text-mint">Smile Transformations</span>
+    <!-- Before & After -->
+    <section id="before-after" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center gap-2 bg-mint-light rounded-full px-4 py-2 mb-4">
+                    <i data-lucide="image" class="w-4 h-4 text-mint"></i>
+                    <span class="text-sm font-semibold text-mint">Smile Transformations</span>
+                </div>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Before &amp; After</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover the beautiful results achieved for our patients.</p>
             </div>
 
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Before & After
-            </h2>
+            <div class="grid md:grid-cols-3 gap-8 fade-in">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <img id="case1" src="Images/After Whitening.jpeg" alt="Teeth whitening result"
+                         data-before="Images/Before Whitening.jpeg" data-after="Images/After Whitening.jpeg" data-state="after"
+                         class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
+                    <div class="p-5 text-center">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-4">Teeth Whitening</h3>
+                        <button class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition" onclick="toggleComparison(this,'case1')">👁 View Before</button>
+                    </div>
+                </div>
 
-            <p class="text-gray-600 max-w-2xl mx-auto">
-                Discover the beautiful results achieved for our patients.
-            </p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <img id="case2" src="Images/After Cleaning.jpeg" alt="Cleaning result"
+                         data-before="Images/Before Cleaning.jpeg" data-after="Images/After Cleaning.jpeg" data-state="after"
+                         class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
+                    <div class="p-5 text-center">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-4">Cleaning</h3>
+                        <button class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition" onclick="toggleComparison(this,'case2')">👁 View Before</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <img id="case3" src="Images/AfterCrowns.jpeg" alt="Smile makeover result"
+                         data-before="Images/BeforeCrowns.jpeg" data-after="Images/AfterCrowns.jpeg" data-state="after"
+                         class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
+                    <div class="p-5 text-center">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-4">Smile Makeover</h3>
+                        <button class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition" onclick="toggleComparison(this,'case3')">👁 View Before</button>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="grid md:grid-cols-3 gap-8 fade-in">
-
-            <!-- Whitening -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <img id="case1"
-                     src="Images/After Whitening.jpeg"
-                     data-before="Images/Before Whitening.jpeg"
-                     data-after="Images/After Whitening.jpeg"
-                     data-state="after"
-                     class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
-
-                <div class="p-5 text-center">
-                    <h3 class="font-semibold text-lg text-gray-800 mb-4">
-                        Teeth Whitening
-                    </h3>
-
-                    <button
-                        class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition"
-                        onclick="toggleComparison(this,'case1')">
-
-                        👁 View Before
-                    </button>
-                </div>
-            </div>
-
-            <!-- Veneers -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <img id="case2"
-                     src="Images/After Cleaning.jpeg"
-                     data-before="Images/Before Cleaning.jpeg"
-                     data-after="Images/After Cleaning.jpeg"
-                     data-state="after"
-                     class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
-
-                <div class="p-5 text-center">
-                    <h3 class="font-semibold text-lg text-gray-800 mb-4">
-                        Cleaning
-                    </h3>
-
-                    <button
-                        class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition"
-                        onclick="toggleComparison(this,'case2')">
-
-                        👁 View Before
-                    </button>
-                </div>
-            </div>
-
-            <!-- Smile Makeover -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <img id="case3"
-                     src="Images/AfterCrowns.jpeg"
-                     data-before="Images/BeforeCrowns.jpeg"
-                     data-after="Images/AfterCrowns.jpeg"
-                     data-state="after"
-                     class="comparison-img w-full h-72 object-cover transition-opacity duration-500">
-
-                <div class="p-5 text-center">
-                    <h3 class="font-semibold text-lg text-gray-800 mb-4">
-                        Smile Makeover
-                    </h3>
-
-                    <button
-                        class="toggle-btn bg-mint text-white px-5 py-2 rounded-full hover:bg-sky-600 transition"
-                        onclick="toggleComparison(this,'case3')">
-
-                        👁 View Before
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Gallery -->
     <section id="gallery" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
@@ -530,7 +343,6 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                 <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Clinic Gallery</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Take a look at our modern facility and the smile transformations we create every day.</p>
             </div>
-            <!-- NEW: Image Lightbox (images are now clickable) -->
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 fade-in">
                 <div class="row-span-2 rounded-2xl overflow-hidden shadow-lg card-hover cursor-pointer" onclick="openLightbox(0)">
                     <img src="Images/Clinic2.jpeg" alt="Clinic Interior" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
@@ -548,11 +360,10 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                     <img src="Images/Clinic6.jpeg" alt="Patient Care" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
-            <!-- END NEW: Image Lightbox -->
         </div>
     </section>
 
-    <!-- NEW: FAQ Section -->
+    <!-- FAQ -->
     <section id="faq" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
@@ -591,71 +402,52 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                         <p class="text-gray-600 text-sm pb-5 leading-relaxed">The implant placement surgery takes about 1–2 hours. However, the full process including healing and crown placement can take 3–6 months. Dr. Jana will walk you through a personalized timeline at your consultation.</p>
                     </div>
                 </div>
-                <!-- Root Canal -->
-<div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
-        <span class="font-semibold text-gray-900 pr-4">Is a root canal painful?</span>
-        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
-    </button>
-    <div class="faq-answer px-6">
-        <p class="text-gray-600 text-sm pb-5 leading-relaxed">
-            Modern root canal treatment is comfortable and performed under local anesthesia. Most patients feel little to no pain during the procedure, and it helps relieve the discomfort caused by infected teeth.
-        </p>
-    </div>
-</div>
-
-<!-- Caries -->
-<div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
-        <span class="font-semibold text-gray-900 pr-4">How are cavities (caries) treated?</span>
-        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
-    </button>
-    <div class="faq-answer px-6">
-        <p class="text-gray-600 text-sm pb-5 leading-relaxed">
-            Cavities are treated by removing the decayed part of the tooth and restoring it with a tooth-colored filling. Early treatment helps prevent pain and more extensive procedures later on.
-        </p>
-    </div>
-</div>
-
-<!-- Cleaning -->
-<div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
-        <span class="font-semibold text-gray-900 pr-4">How often should I get a professional dental cleaning?</span>
-        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
-    </button>
-    <div class="faq-answer px-6">
-        <p class="text-gray-600 text-sm pb-5 leading-relaxed">
-            Most patients benefit from a professional cleaning every six months. Regular cleanings remove plaque and tartar buildup, helping prevent gum disease and keeping your smile healthy.
-        </p>
-    </div>
-</div>
-
-<!-- Crowns -->
-<div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
-        <span class="font-semibold text-gray-900 pr-4">When do I need a dental crown?</span>
-        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
-    </button>
-    <div class="faq-answer px-6">
-        <p class="text-gray-600 text-sm pb-5 leading-relaxed">
-            Dental crowns are recommended to restore teeth that are weakened, cracked, heavily filled, or treated with a root canal. They protect the tooth and restore its strength, function, and appearance.
-        </p>
-    </div>
-</div>
-
-<!-- Extractions -->
-<div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
-        <span class="font-semibold text-gray-900 pr-4">When is tooth extraction necessary?</span>
-        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
-    </button>
-    <div class="faq-answer px-6">
-        <p class="text-gray-600 text-sm pb-5 leading-relaxed">
-            Tooth extraction is recommended when a tooth is severely damaged, infected, or cannot be restored. Dr. Jana always explores conservative treatment options first and ensures the procedure is as comfortable as possible.
-        </p>
-    </div>
-</div>
-<div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-gray-900 pr-4">Is a root canal painful?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 text-sm pb-5 leading-relaxed">Modern root canal treatment is comfortable and performed under local anesthesia. Most patients feel little to no pain during the procedure, and it helps relieve the discomfort caused by infected teeth.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-gray-900 pr-4">How are cavities (caries) treated?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 text-sm pb-5 leading-relaxed">Cavities are treated by removing the decayed part of the tooth and restoring it with a tooth-colored filling. Early treatment helps prevent pain and more extensive procedures later on.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-gray-900 pr-4">How often should I get a professional dental cleaning?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 text-sm pb-5 leading-relaxed">Most patients benefit from a professional cleaning every six months. Regular cleanings remove plaque and tartar buildup, helping prevent gum disease and keeping your smile healthy.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-gray-900 pr-4">When do I need a dental crown?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 text-sm pb-5 leading-relaxed">Dental crowns are recommended to restore teeth that are weakened, cracked, heavily filled, or treated with a root canal. They protect the tooth and restore its strength, function, and appearance.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-semibold text-gray-900 pr-4">When is tooth extraction necessary?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 text-sm pb-5 leading-relaxed">Tooth extraction is recommended when a tooth is severely damaged, infected, or cannot be restored. Dr. Jana always explores conservative treatment options first and ensures the procedure is as comfortable as possible.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(this)">
                         <span class="font-semibold text-gray-900 pr-4">How do I book an appointment?</span>
                         <i data-lucide="plus" class="faq-icon w-5 h-5 text-dental flex-shrink-0"></i>
@@ -667,33 +459,25 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
             </div>
         </div>
     </section>
-    <!-- END NEW: FAQ Section -->
 
- <!-- Location -->
-<section id="location" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-            <div class="inline-flex items-center gap-2 bg-dental-light rounded-full px-4 py-2 mb-4">
-                <i data-lucide="map-pin" class="w-4 h-4 text-dental"></i>
-                <span class="text-sm font-semibold text-dental">Visit Us</span>
+    <!-- Location -->
+    <section id="location" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center gap-2 bg-dental-light rounded-full px-4 py-2 mb-4">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-dental"></i>
+                    <span class="text-sm font-semibold text-dental">Visit Us</span>
+                </div>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Location</h2>
             </div>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Location</h2>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 fade-in">
-            <div class="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px]">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.0!2d35.6583!3d34.2553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f5900752258d9%3A0xd2f2a00cbe0311e0!2sDr.%20Jana%20Maroun%20Dental%20Clinic!5e0!3m2!1sen!2slb!4v1"
-                    width="100%"
-                    height="100%"
-                    style="border:0; display:block; min-height:400px;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-            <div class="space-y-6">
-
-                    <!-- NEW: Open/Closed Status Badge -->
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 fade-in">
+                <div class="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px]">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.0!2d35.6583!3d34.2553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f5900752258d9%3A0xd2f2a00cbe0311e0!2sDr.%20Jana%20Maroun%20Dental%20Clinic!5e0!3m2!1sen!2slb!4v1"
+                        width="100%" height="100%" style="border:0; display:block; min-height:400px;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="space-y-6">
                     <div class="bg-white rounded-2xl p-4 shadow-md border border-gray-100 flex items-center justify-between">
                         <span class="font-semibold text-gray-900 text-sm">Clinic Status</span>
                         <span id="clinic-status" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold">
@@ -701,13 +485,10 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                             <span id="status-text">Checking...</span>
                         </span>
                     </div>
-                    <!-- END NEW: Open/Closed Status Badge -->
 
                     <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-dental/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="map-pin" class="w-6 h-6 text-dental"></i>
-                            </div>
+                            <div class="w-12 h-12 bg-dental/10 rounded-xl flex items-center justify-center flex-shrink-0"><i data-lucide="map-pin" class="w-6 h-6 text-dental"></i></div>
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-1">Address</h3>
                                 <p class="text-gray-600 text-sm">Salhab Center, 2nd floor<br>Batroun</p>
@@ -716,9 +497,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-mint/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="clock" class="w-6 h-6 text-mint"></i>
-                            </div>
+                            <div class="w-12 h-12 bg-mint/10 rounded-xl flex items-center justify-center flex-shrink-0"><i data-lucide="clock" class="w-6 h-6 text-mint"></i></div>
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-1">Office Hours</h3>
                                 <div class="text-sm text-gray-600 space-y-1">
@@ -731,9 +510,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="phone" class="w-6 h-6 text-purple-500"></i>
-                            </div>
+                            <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center flex-shrink-0"><i data-lucide="phone" class="w-6 h-6 text-purple-500"></i></div>
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-1">Contact</h3>
                                 <p class="text-gray-600 text-sm">Phone: 79 307 104</p>
@@ -741,7 +518,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                             </div>
                         </div>
                     </div>
-                    <a href="https://wa.me/79307104?text=Hi%2C%20I%20need%20directions%20to%20your%20clinic." target="_blank"
+                    <a href="https://wa.me/96179307104?text=Hi%2C%20I%20need%20directions%20to%20your%20clinic." target="_blank"
                        class="flex items-center justify-center gap-2 bg-mint hover:bg-mint-dark text-white px-6 py-4 rounded-2xl font-semibold transition-all shadow-lg shadow-mint/30 hover:shadow-mint/50 w-full">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         Get Directions via WhatsApp
@@ -751,7 +528,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="py-20 md:py-28 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-dental-dark to-mint-dark"></div>
         <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
@@ -763,7 +540,7 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
             <h2 class="font-display text-3xl md:text-5xl font-bold text-white mb-6">Ready for Your Best Smile?</h2>
             <p class="text-white/80 text-lg mb-10 max-w-2xl mx-auto">Don't wait to get the smile you deserve. Contact us today via WhatsApp and we'll get you scheduled right away!</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/79307104?text=Hello%21%20I%20would%20like%20to%20book%20an%20appointment%20with%20Dr.%20Jana." target="_blank"
+                <a href="https://wa.me/96179307104?text=Hello%21%20I%20would%20like%20to%20book%20an%20appointment%20with%20Dr.%20Jana." target="_blank"
                    class="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
                     <svg class="w-6 h-6 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     Chat on WhatsApp
@@ -805,35 +582,18 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
                 <div>
                     <h4 class="font-semibold mb-4">Contact</h4>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li class="flex items-start gap-2">
-                            <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 text-mint flex-shrink-0"></i>
-                            Batroun, Salhab Center, 2nd floor
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="phone" class="w-4 h-4 text-mint flex-shrink-0"></i>
-                            79 307 104
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="mail" class="w-4 h-4 text-mint flex-shrink-0"></i>
-                            janamaroun31@gmail.com
-                        </li>
+                        <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 text-mint flex-shrink-0"></i>Batroun, Salhab Center, 2nd floor</li>
+                        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-mint flex-shrink-0"></i>79 307 104</li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-mint flex-shrink-0"></i>janamaroun31@gmail.com</li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-sm text-gray-500">&copy; Dr. Jana Maroun Dental Clinic. All rights reserved.</p>
                 <div class="flex gap-4">
-                    <a href="https://www.facebook.com/share/1A9TzbHgjV/" class="w-10 h-10 bg-gray-800 hover:bg-dental rounded-lg flex items-center justify-center transition-colors">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/dr.janamaroun?igsh=b2NyYTlid2JuOGJn" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-pink-500 rounded-lg flex items-center justify-center transition-colors">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                     <a href="https://wa.me/96179307104" target="_blank"
-                     rel="noopener noreferrer"
-                     class="w-10 h-10 bg-gray-800 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors">
-                     <i class="fa-brands fa-whatsapp"></i>
-                    </a>
+                    <a href="https://www.facebook.com/share/1A9TzbHgjV/" class="w-10 h-10 bg-gray-800 hover:bg-dental rounded-lg flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/dr.janamaroun?igsh=b2NyYTlid2JuOGJn" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-pink-500 rounded-lg flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/96179307104" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -841,180 +601,33 @@ if (localStorage.getItem('theme') === 'dark') toggleDark();
 
     <!-- WhatsApp Floating Button -->
     <div class="whatsapp-float pulse-glow">
-        <a href="https://wa.me/79307104?text=Hello%21%20I%20would%20like%20to%20book%20an%20appointment."
+        <a href="https://wa.me/96179307104?text=Hello%21%20I%20would%20like%20to%20book%20an%20appointment."
            target="_blank" aria-label="Chat on WhatsApp"
            class="fixed bottom-6 right-6 flex items-center justify-center w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full shadow-xl hover:scale-110 transition-all duration-300 animate-pulse z-30">
-            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
     </div>
 
     <!-- Made By Label -->
- <div class="made-by">
-    Made by <a href="https://www.instagram.com/majd_maroun" target="_blank">@majd_maroun</a>
-</div>
+    <div class="made-by">
+        Made by <a href="https://www.instagram.com/majd_maroun" target="_blank">@majd_maroun</a>
+    </div>
 
-    <!-- NEW: Back to Top Button -->
-   <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-    class="w-12 h-12 bg-gradient-to-br from-dental to-mint text-white rounded-full shadow-xl shadow-dental/30 flex items-center justify-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-mint/40 border-2 border-white/50">
-    <i data-lucide="arrow-up" class="w-5 h-5"></i>
-</button>
-    <!-- END NEW: Back to Top Button -->
+    <!-- Back to Top -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        class="w-12 h-12 bg-gradient-to-br from-dental to-mint text-white rounded-full shadow-xl shadow-dental/30 flex items-center justify-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-mint/40 border-2 border-white/50">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
 
-    <!-- NEW: Image Lightbox Modal -->
+    <!-- Lightbox -->
     <div id="lightbox" onclick="closeLightboxOutside(event)">
         <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
         <button id="lightbox-prev" onclick="lightboxNav(-1)">&#8249;</button>
         <img id="lightbox-img" src="" alt="Gallery Image">
         <button id="lightbox-next" onclick="lightboxNav(1)">&#8250;</button>
     </div>
-    <!-- END NEW: Image Lightbox Modal -->
 
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
-        });
-
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Navbar shadow on scroll + NEW: Scroll Progress Bar + NEW: Back to Top visibility
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-
-            // Navbar
-            document.getElementById('navbar').classList.toggle('shadow-md', scrollTop > 50);
-
-            // NEW: Scroll Progress Bar
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            document.getElementById('scroll-progress').style.width = ((scrollTop / docHeight) * 100) + '%';
-
-            // NEW: Back to Top
-            document.getElementById('back-to-top').classList.toggle('visible', scrollTop > 400);
-        });
-
-        // NEW: Animated Counters
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const el = entry.target;
-                const target = parseFloat(el.dataset.target);
-                const isDecimal = el.dataset.decimal;
-                const steps = 60, duration = 1500;
-                let current = 0;
-                const timer = setInterval(() => {
-                    current += target / steps;
-                    if (current >= target) { current = target; clearInterval(timer); }
-                    el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
-                }, duration / steps);
-                counterObserver.unobserve(el);
-            });
-        }, { threshold: 0.5 });
-        document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
-
-        // NEW: Open/Closed Status Badge
-        function updateClinicStatus() {
-            const now = new Date();
-            const day = now.getDay(); // 0=Sun,1=Mon,...,6=Sat
-            const time = now.getHours() + now.getMinutes() / 60;
-            let isOpen = false;
-            if (day >= 1 && day <= 5) isOpen = (time >= 8 && time < 18);
-            else if (day === 6)        isOpen = (time >= 9 && time < 15);
-            const statusEl = document.getElementById('clinic-status');
-            const dotEl    = document.getElementById('status-dot');
-            const textEl   = document.getElementById('status-text');
-            if (isOpen) {
-                statusEl.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold status-open';
-                dotEl.className    = 'w-2 h-2 rounded-full bg-green-500 animate-pulse';
-                textEl.textContent = 'Open Now';
-            } else {
-                statusEl.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold status-closed';
-                dotEl.className    = 'w-2 h-2 rounded-full bg-red-500';
-                textEl.textContent = 'Closed Now';
-            }
-        }
-        updateClinicStatus();
-
-        // NEW: FAQ Accordion
-        function toggleFaq(btn) {
-            const item   = btn.closest('.faq-item');
-            const answer = item.querySelector('.faq-answer');
-            const wasOpen = item.classList.contains('open');
-            document.querySelectorAll('.faq-item').forEach(i => {
-                i.classList.remove('open');
-                i.querySelector('.faq-answer').classList.remove('open');
-            });
-            if (!wasOpen) { item.classList.add('open'); answer.classList.add('open'); }
-            lucide.createIcons();
-        }
-
-        // NEW: Image Lightbox
-        const galleryImages = [
-            'Images/Clinic2.jpeg',
-            'Images/Clinic3.jpeg',
-            'Images/Clinic4.jpeg',
-            'Images/Clinic5.jpeg',
-            'Images/Clinic6.jpeg'
-        ];
-        let currentLightboxIndex = 0;
-        function openLightbox(index) {
-            currentLightboxIndex = index;
-            document.getElementById('lightbox-img').src = galleryImages[index];
-            document.getElementById('lightbox').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        function closeLightboxOutside(e) { if (e.target.id === 'lightbox') closeLightbox(); }
-        function lightboxNav(dir) {
-            currentLightboxIndex = (currentLightboxIndex + dir + galleryImages.length) % galleryImages.length;
-            document.getElementById('lightbox-img').src = galleryImages[currentLightboxIndex];
-        }
-        document.addEventListener('keydown', (e) => {
-            if (!document.getElementById('lightbox').classList.contains('active')) return;
-            if (e.key === 'Escape')      closeLightbox();
-            if (e.key === 'ArrowLeft')   lightboxNav(-1);
-            if (e.key === 'ArrowRight')  lightboxNav(1);
-        });
-     function toggleComparison(button, imageId) {
-
-    const img = document.getElementById(imageId);
-
-    img.style.opacity = 0;
-
-    setTimeout(() => {
-
-        if (img.dataset.state === "after") {
-
-            img.src = img.dataset.before;
-            img.dataset.state = "before";
-            button.innerHTML = "👁 View After";
-
-        } else {
-
-            img.src = img.dataset.after;
-            img.dataset.state = "after";
-            button.innerHTML = "👁 View Before";
-
-        }
-
-        img.style.opacity = 1;
-
-    }, 200);
-}
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

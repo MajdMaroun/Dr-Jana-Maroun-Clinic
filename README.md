@@ -113,3 +113,12 @@ Computer Science Student | Web Developer
 * **Project Repository:** [Dr-Jana-Maroun-Clinic](https://github.com/MajdMaroun/Dr-Jana-Maroun-Clinic)
 
 ⭐ If you find this project interesting, feel free to explore the repository and the live website.
+
+## Copyright and Usage
+
+© 2026 Majd Maroun. All rights reserved.
+
+This repository is publicly available for viewing and portfolio evaluation. No general permission is granted to copy, modify, redistribute, or reuse the original source code without prior written permission.
+
+Third-party libraries, assets, and other components remain subject to their respective licenses and terms.
+
